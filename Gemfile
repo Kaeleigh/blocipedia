@@ -42,6 +42,7 @@ source 'https://rubygems.org'
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
+   gem 'faker'
  end
 
  gem 'bootstrap-sass'
