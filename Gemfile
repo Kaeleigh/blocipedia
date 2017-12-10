@@ -16,7 +16,7 @@ source 'https://rubygems.org'
  group :development do
    # Use sqlite3 as the development database for Active Record
    gem 'sqlite3'
-   gem 'web-console', '~> 2.0'
+   gem 'web-console', '~> 3.5.1'
  end
 
  # Use Puma as the app server
@@ -37,14 +37,19 @@ source 'https://rubygems.org'
 
  group :development do
    gem 'listen', '~> 3.0.5'
+   gem 'letter_opener'
  end
 
  group :development, :test do
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
+   gem 'pry'
+   gem 'factory_girl_rails', '~> 4.0'
    gem 'faker'
  end
 
  gem 'bootstrap-sass'
 
  gem 'devise'
+
+ gem 'pundit'

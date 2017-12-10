@@ -55,7 +55,7 @@ admin = User.create!(
 )
 
 puts "Seeds finished"
-puts "#{standard_users.count} standard users created"
-puts "#{premium_users.count} premium users created"
-puts "#{User.where(role: 'admin').count} admins created"
-puts "#{Wiki.count} topics created"
+puts "#{standard_users.count} standard users created."
+puts "#{premium_users.count} premium users created."
+puts "#{User.where(role: 'admin').count} admins created."
+puts "#{Wiki.count} topics created."
