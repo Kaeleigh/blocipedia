@@ -44,7 +44,8 @@ source 'https://rubygems.org'
    gem 'rspec-rails', '~> 3.0'
    gem 'rails-controller-testing'
    gem 'pry'
-   gem 'factory_girl_rails' , '~> 4.0'
+   gem 'factory_girl_rails', '~> 4.0'
+   gem 'faker'
  end
 
  gem 'bootstrap-sass'
