@@ -7,15 +7,11 @@ class ChargesController < ApplicationController
     }
   end
 
-
-
   def create
     customer = Stripe::Customer.create(
       email: current_user.email,
       card: params[:stripeToken]
     )
-
-
 
     charge = Stripe::Charge.create(
       customer: customer.id,
@@ -38,7 +34,7 @@ class ChargesController < ApplicationController
   def destroy
       current_user.standard!
       flash[:notice] = "\"#{current_user.email}\" was downgraded to standard successfully.\nAll associated Wiki's have been marked as PUBLIC."
-
+      redirect_to new_charge_path
 
       wikis = current_user.wikis
       wikis.each do |wiki|
@@ -47,7 +43,7 @@ class ChargesController < ApplicationController
           wiki.save!
         end
 
-      redirect_to new_charge_path
+
 
     end
   end
