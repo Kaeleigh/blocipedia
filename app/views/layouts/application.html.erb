@@ -13,6 +13,7 @@
     <ul class= "nav nav-tabs">
       <li><%= link_to "Blocipedia", root_path %></li>
       <li><%= link_to "About", about_path %></li>
+      <li><%= link_to "Wikis", wikis_path %></li>
       <% if current_user && current_user.premium? %>
         <li><%= link_to "Downgrade", new_charge_path %></li>
       <% elsif current_user && current_user.standard? %>
@@ -26,7 +27,7 @@
           <% else %>
             Signed in as: <strong><%= current_user.email %></strong>&emsp;
           <% end %>
-          
+
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> -
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
         </div>
