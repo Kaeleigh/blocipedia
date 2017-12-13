@@ -49,7 +49,10 @@ source 'https://rubygems.org'
  end
 
  gem 'bootstrap-sass'
-
  gem 'devise'
 
  gem 'pundit'
+
+ gem 'figaro', '1.0'
+
+ gem 'stripe'
