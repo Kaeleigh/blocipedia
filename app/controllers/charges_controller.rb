@@ -7,15 +7,12 @@ class ChargesController < ApplicationController
     }
   end
 
-
-
   def create
     customer = Stripe::Customer.create(
       email: current_user.email,
       card: params[:stripeToken]
     )
 
-    
 
     charge = Stripe::Charge.create(
       customer: customer.id,
@@ -47,7 +44,6 @@ class ChargesController < ApplicationController
           wiki.save!
         end
 
-
       redirect_to new_charge_path
 
     end
@@ -57,5 +53,6 @@ class ChargesController < ApplicationController
   def amt
     10_00
   end
+
   # closes class
 end
