@@ -1,4 +1,5 @@
 class WikisController < ApplicationController
+
   def index
     @wikis = Wiki.all
   end
@@ -15,13 +16,16 @@ class WikisController < ApplicationController
     @wiki = Wiki.new(wiki_params)
     @wiki.user = current_user
 
-      if @wiki.save
-        redirect_to @wiki, notice: "Wiki was saved successfully."
-      else
-        flash.now[:alert] = "Error creating wiki. Please try again."
-        render :new
-      end
+    if @wiki.save
+      wiki_type = @wiki.private? ? "Private Wiki" : "Wiki"
+      
+      flash[:notice] = "#{wiki_type} successfully created!"
+      redirect_to @wiki
+    else
+      flash.now[:alert] = "Error creating wiki. Please try again."
+      render :new
     end
+  end
 
   def edit
     @wiki = Wiki.find(params[:id])
@@ -56,5 +60,6 @@ class WikisController < ApplicationController
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
   end
-# closes classes
+
+  # closes classes
 end
