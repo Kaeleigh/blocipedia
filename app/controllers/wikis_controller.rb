@@ -1,5 +1,5 @@
 class WikisController < ApplicationController
-  
+
   def index
     @wikis = Wiki.all
   end
@@ -17,12 +17,9 @@ class WikisController < ApplicationController
     @wiki.user = current_user
 
     if @wiki.save
-      if @wiki.private?
-        flash[:notice] = "Private Wiki successfully created!"
-
-      else
-        flash[:notice] = "Wiki successfully created!"
-      end
+      wiki_type = @wiki.private? ? "Private Wiki" : "Wiki"
+      
+      flash[:notice] = "#{wiki_type} successfully created!"
       redirect_to @wiki
     else
       flash.now[:alert] = "Error creating wiki. Please try again."

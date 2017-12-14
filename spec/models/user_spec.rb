@@ -45,30 +45,37 @@ RSpec.describe User, type: :model do
       before do
         @user.premium!
       end
+
       it "returns true for #standard?" do
         expect(@user.standard?).to be_falsey
       end
+
       it "returns false for #premium?" do
         expect(@user.premium?).to be_truthy
       end
+
       it "returns false for #admin?" do
         expect(@user.admin?).to be_falsey
       end
     end
+
     context "admin user" do
       before do
         @user.admin!
       end
+
       it "returns false for #standard?" do
         expect(@user.standard?).to be_falsey
       end
+
       it "returns false for #premium?" do
         expect(@user.premium?).to be_falsey
       end
+      
       it "returns true for #admin?" do
         expect(@user.admin?).to be_truthy
       end
     end
   end
-# closes RSpec  
+  # closes RSpec
 end
