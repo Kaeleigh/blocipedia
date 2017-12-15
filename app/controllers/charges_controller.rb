@@ -34,7 +34,6 @@ class ChargesController < ApplicationController
   def destroy
       current_user.standard!
       flash[:notice] = "\"#{current_user.email}\" was downgraded to standard successfully.\nAll associated Wiki's have been marked as PUBLIC."
-      redirect_to new_charge_path
 
       wikis = current_user.wikis
       wikis.each do |wiki|
@@ -43,12 +42,13 @@ class ChargesController < ApplicationController
           wiki.save!
         end
 
-
+      redirect_to new_charge_path
 
     end
   end
 
   private
+
   def amt
     10_00
   end
