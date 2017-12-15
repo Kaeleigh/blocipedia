@@ -1,6 +1,7 @@
 <div>
   <h1>
     <%= @wiki.title %> <br>
+    
     <small>
       Created <%= time_ago_in_words(@wiki.created_at) %> ago.
       <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success btn-small' %>
