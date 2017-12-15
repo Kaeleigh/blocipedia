@@ -54,7 +54,6 @@ RSpec.describe User, type: :model do
         expect(@user.premium?).to be_truthy
       end
 
-
       it "returns false for #admin?" do
         expect(@user.admin?).to be_falsey
       end
@@ -72,12 +71,11 @@ RSpec.describe User, type: :model do
       it "returns false for #premium?" do
         expect(@user.premium?).to be_falsey
       end
-      
 
       it "returns true for #admin?" do
         expect(@user.admin?).to be_truthy
       end
     end
   end
-
+  # closes RSpec
 end

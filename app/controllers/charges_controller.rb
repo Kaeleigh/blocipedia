@@ -13,6 +13,7 @@ class ChargesController < ApplicationController
       card: params[:stripeToken]
     )
 
+
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: amt,
@@ -48,7 +49,7 @@ class ChargesController < ApplicationController
   end
 
   private
-
+  
   def amt
     10_00
   end
