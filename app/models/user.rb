@@ -1,9 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :confirmable,
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
 
   has_many  :wikis, dependent: :destroy
 
@@ -13,5 +12,5 @@ class User < ApplicationRecord
   after_initialize { self.role ||= :standard }
 
   enum role: [:standard, :premium, :admin]
-# closes class
+
 end

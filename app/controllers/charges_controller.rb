@@ -13,7 +13,6 @@ class ChargesController < ApplicationController
       card: params[:stripeToken]
     )
 
-
     charge = Stripe::Charge.create(
       customer: customer.id,
       amount: amt,
@@ -36,7 +35,6 @@ class ChargesController < ApplicationController
       current_user.standard!
       flash[:notice] = "\"#{current_user.email}\" was downgraded to standard successfully.\nAll associated Wiki's have been marked as PUBLIC."
 
-
       wikis = current_user.wikis
       wikis.each do |wiki|
         if wiki.private
@@ -50,6 +48,7 @@ class ChargesController < ApplicationController
   end
 
   private
+
   def amt
     10_00
   end

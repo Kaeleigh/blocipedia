@@ -14,7 +14,7 @@
       <li><%= link_to "Blocipedia", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Wikis", wikis_path %></li>
-      
+
       <% if current_user && current_user.premium? %>
         <li><%= link_to "Downgrade", new_charge_path %></li>
       <% elsif current_user && current_user.standard? %>
@@ -51,7 +51,7 @@
           <%= flash[:alert] %>
         </div>
     <% end %>
-      
+
     <%= yield %>
    </div>
   </body>

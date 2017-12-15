@@ -10,6 +10,7 @@
           data-amount="<%= @stripe_btn_data[:amount] %>"
           data-description="<%= @stripe_btn_data[:description] %>" ></script>
     <% end %>
+
   <% elsif current_user.premium? %>
     <h3>We hate to see you go, but if you must downgrade to <strong>Standard Membership</strong>, use the following link.</h3>
     <%= link_to "Downgrade Account", @charge, method: :delete, class: 'btn btn-danger', data: {confirm: "Downgrading your account will cause all your private Wikis to be marked as PUBLIC.  Are you sure?"} %>

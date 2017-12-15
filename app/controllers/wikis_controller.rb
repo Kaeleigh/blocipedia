@@ -18,7 +18,7 @@ class WikisController < ApplicationController
 
     if @wiki.save
       wiki_type = @wiki.private? ? "Private Wiki" : "Wiki"
-      
+
       flash[:notice] = "#{wiki_type} successfully created!"
       redirect_to @wiki
     else
@@ -57,6 +57,7 @@ class WikisController < ApplicationController
   end
 
   private
+
   def wiki_params
     params.require(:wiki).permit(:title, :body, :private)
   end
