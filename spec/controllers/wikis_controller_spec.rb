@@ -52,7 +52,13 @@ RSpec.describe WikisController, type: :controller do
 
   describe "POST create" do
     it "increases num of Wikis by 1" do
-      expect{ post :create, params: { wiki: { title: "New Wiki Title", body: "New Wiki Body", private: false } } }.to change(Wiki, :count).by(1)
+      expect do
+        post :create, params: {
+          wiki: {
+            title: "New Wiki Title", body: "New Wiki Body", private: false
+          }
+        }
+      end.to change(Wiki, :count).by(1)
     end
 
     it "assigns the new wiki to @wiki" do
