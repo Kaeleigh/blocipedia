@@ -4,6 +4,9 @@ RSpec.describe Wiki, type: :model do
   let(:wiki) { create(:wiki, title: "New Wiki Title", body: "New wiki body", private: false, user: user) }
   let(:user) { create(:user, email: "test@bloc.io", password: "password") }
 
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:collaborators) }
+
   it { is_expected.to validate_presence_of(:title) }
   it { is_expected.to validate_presence_of(:body) }
 
