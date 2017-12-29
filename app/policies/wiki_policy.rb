@@ -23,21 +23,17 @@ class WikiPolicy < ApplicationPolicy
         wikis = scope.all
       elsif user && user.role == 'premium'
         all_wikis = scope.all
-        all_wikis.map { |wiki| wiki if !wiki.private || wiki.user_id == user.id || wiki.collaborators.include?(user_id: user.id) } end
+        all_wikis.map { |wiki| wiki if !wiki.private || wiki.user_id == user.id || wiki.collaborators.include?(user_id: user.id) }
             "Collaborator or Admin"
       else
         all_wikis = scope.all
-        all_wikis.each do |wiki|
-          if !wiki.private || wiki.collaborators.include?(user_id: user.id)
+        all_wikis.map { |wiki| wiki if !wiki.private || wiki.collaborators.include?(user_id: user.id) }
             if wiki.collaborators.include?(user_id: user.id)
              "\n\nNon Premium Collaborator Found\n\n"
             end
-            wikis << wiki
-          end
-        end
       end
-      wikis
-    #closes resolve method  
+      all_wikis
+    #closes resolve method
     end
   #closes class scope
   end
