@@ -28,7 +28,7 @@ class WikiPolicy < ApplicationPolicy
       else
         all_wikis = scope.all
         all_wikis.map { |wiki| wiki if !wiki.private || wiki.collaborators.include?(user_id: user.id) }
-            if wikis.collaborators.include?(user_id: user.id)
+            if wiki.collaborators.include?(user_id: user.id)
              "\n\nNon Premium Collaborator Found\n\n"
             end
       end
