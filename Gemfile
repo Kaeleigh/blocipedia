@@ -10,7 +10,7 @@ source 'https://rubygems.org'
 
  group :production do
    # Use pg as the production database for Active Record
-   gem 'pg', '~> 0.20.0'
+   gem 'pg'
  end
 
  group :development do

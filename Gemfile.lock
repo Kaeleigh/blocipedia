@@ -224,7 +224,7 @@ DEPENDENCIES
   jquery-rails
   letter_opener
   listen (~> 3.0.5)
-  pg (~> 0.20.0)
+  pg
   pry
   puma (~> 3.0)
   pundit
