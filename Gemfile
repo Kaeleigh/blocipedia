@@ -45,7 +45,6 @@ source 'https://rubygems.org'
    gem 'rails-controller-testing'
    gem 'pry'
    gem 'factory_girl_rails', '~> 4.0'
-   gem 'faker'
  end
 
  gem 'bootstrap-sass'
@@ -58,3 +57,4 @@ source 'https://rubygems.org'
  gem 'stripe'
 
  gem 'redcarpet'
+ gem 'faker'
